@@ -1,0 +1,17 @@
+pipeline:
+  name: HelloAppPipeline
+  stages:
+    - stage:
+        name: Build
+        type: Build
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: Build Docker Image
+                  type: Docker
+                  spec:
+                    image: docker:latest
+                    command: |
+                      docker build -t mounisha21/harness:latest .
+                      docker push mounisha21/harness:latest
